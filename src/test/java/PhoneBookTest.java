@@ -30,4 +30,18 @@ public class PhoneBookTest {
         // Проверяем случай когда номер не записан в телефонную книгу
         assertNull(phoneBook.findByNumber("000000000000"));
     }
+    @Test
+    public void testFindByName () {
+        PhoneBook phoneBook = new PhoneBook();
+        // Добавляем контакты
+        phoneBook.add("Olga", "445566112233");
+        phoneBook.add("Lev", "123456789");
+        phoneBook.add("Phillip", "555666777");
+        // Проверяем случаи когда номера записаны в телефонную книгу
+        assertEquals("445566112233", phoneBook.findByName("Olga"));
+        assertEquals("123456789", phoneBook.findByName("Lev"));
+        assertEquals("555666777", phoneBook.findByName("Phillip"));
+        // Проверяем случай когда номер не записан в телефонную книгу
+        assertNull(phoneBook.findByName("Petya"));
+    }
 }
