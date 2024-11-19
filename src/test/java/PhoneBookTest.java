@@ -44,4 +44,23 @@ public class PhoneBookTest {
         // Проверяем случай когда номер не записан в телефонную книгу
         assertNull(phoneBook.findByName("Petya"));
     }
-}
+    @Test
+    public void testPrintAllNames () {
+        PhoneBook phoneBook = new PhoneBook();
+        // Добавляем контакты
+        phoneBook.add("Olga", "445566112233");
+        phoneBook.add("Lev", "123456789");
+        phoneBook.add("Phillip", "555666777");
+
+        // Получаем строку, которая должна быть выведена
+        String result = phoneBook.printAllNames();
+
+        // Ожидаемый вывод в алфавитном порядке
+        String expectedOutput = "Lev\nOlga\nPhillip\n";
+
+        // Проверяем, что результат совпадает с ожидаемым
+        assertEquals(expectedOutput, result);
+    }
+
+
+    }

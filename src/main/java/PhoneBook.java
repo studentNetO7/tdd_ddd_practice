@@ -19,4 +19,8 @@ public class PhoneBook {
     public String findByName(String name) {
         return contactsNameToNumber.get(name); // Быстрый поиск по номеру
     }
+    public String printAllNames(){
+
+        return "";
+    }
 }
